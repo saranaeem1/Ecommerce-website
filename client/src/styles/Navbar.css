@@ -1,0 +1,56 @@
+li{
+    margin:2px;
+    
+} 
+.search-input {
+    border-bottom: none; 
+  }
+  .navbar {
+    padding: 0.5rem 1rem;
+    background-color: black; 
+    border-bottom: none !important; 
+    box-shadow: none !important; 
+  }
+  
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-family: sans-serif; 
+  }
+  
+  .navbar-logo {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .nav-link, .dropdown-item, .navbar-brand span {
+    color: white !important; 
+  }
+  
+  .nav-link:hover, .dropdown-item:hover {
+    color: #ccc !important; 
+  }
+  
+  .dropdown-menu {
+    background-color: black;
+    border:2px solid white ; 
+  }
+  
+  .dropdown-item {
+    color: white; 
+  }
+  
+  .dropdown-item:hover {
+    background-color: #333; 
+    color: white;
+  }
+  
+  .navbar-toggler-icon {
+    filter: invert(1); 
+  }
+  
+  .nav-link .ant-badge, 
+  .nav-link .ant-badge-count {
+    color: white !important; 
+  }

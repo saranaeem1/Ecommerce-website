@@ -1,0 +1,321 @@
+ /* FLEXES */
+ .submitbtn{
+  width:100px;
+
+}
+
+.flexescontainer {
+  display: flex;
+ 
+  justify-content: space-around;
+  align-items: center;
+  background-color: #373131;
+  flex-wrap: wrap;
+  width:auto;
+  padding: 20px;
+}
+
+
+.left-div {
+  flex: 1;
+  color:white;
+  padding: 20px;
+  text-align: left;
+}
+
+.left-div img {
+  max-width: 100%;
+  height: auto;
+}
+
+.right-div {
+  
+  flex: 1;
+  color:black;
+ 
+  padding: 20px;
+  text-align: left;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input, select, textarea {
+  color:black;
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.submitbtn {
+  background-color:red;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  border-radius:8px;
+  border: none;
+}
+
+.flex_main2h2 {
+  background-color:#373131;
+  color:white;
+  height:auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+
+.img2{
+  width:90%;
+  height:60%;
+}
+.img3{
+  width:80%;
+}
+.imgcentre{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.menudivs{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  width:100%;
+  height:auto;
+  background: #000;
+  color:white;
+
+}
+.rdmore2{
+  color:rgb(26, 201, 114);
+  text-decoration: none;
+}
+
+.menudiv{
+  margin:20px;
+  padding:10px;
+  border:2px solid rgb(249, 4, 4);
+  border-color: rgb(249, 4, 4);
+  border-radius: 16px;
+  
+}
+.icons{
+  height:200px;
+  width:100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.mainflex{
+  display:flex;
+  margin-top: 20px;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  width:100%;
+  overflow-x: hidden;
+  flex-direction:row;
+  height:auto;
+}
+.mainp{
+width:500px;
+word-wrap: break-word;
+}
+.mainh{
+  width:500px;
+  word-wrap: break-word;
+}
+.red{
+  color:rgb(26, 201, 114);
+}
+.mainbtn{
+  background-color: rgb(249, 4, 4);
+  color:white;
+  width:150px;
+  height:40px;
+  border-color:rgb(249, 4, 4);
+  border-radius: 20px;
+}
+.explorebtn{
+  background-color: rgb(249, 4, 4);
+  border-color:rgb(249, 4, 4);
+  color:white;
+  width:150px;
+  height:40px;
+  border-radius: 20px;
+  
+}
+.btnlink{
+  background-color: rgb(249, 4, 4);
+  color: white;
+  text-decoration: none;
+}
+
+
+
+
+.flex1{
+  margin-left:30px;
+  max-width:700px;
+  color:white;
+}
+.flex2{
+  margin-right:20px;
+  max-width:700px;
+
+}
+.img1{
+width:45%;
+}
+.banner-img {
+  margin-top: 60px;
+}
+
+
+
+ /*FIRST SECTION */
+ @media only screen and (min-width: 300px) and (max-width: 400px) {
+  
+  .flexescontainer {
+    flex-direction: column;}
+  
+
+  .menudivs{
+flex-direction: column;
+  }
+  .img1{
+    width:80%;
+  }
+  .mainflex{
+    margin-top:50px;
+    flex-direction: column;
+  }
+  .mainp{
+    width:270px;
+  }
+  .mainh{
+    margin-top:50px;
+    width:280px;
+    
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*old */
+.home-page h1 {
+  color: gray;
+  font-family: "Playfair Display", serif;
+}
+
+.home-page {
+  display: flex;
+  flex-wrap: wrap;
+}
+.home-page .card {
+  background-color: rgba(128, 128, 128, 0.097);
+  width: 18rem;
+}
+.home-page .card-name-price {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.home-page .card-price {
+  color: green;
+  font-weight: bold;
+}
+.home-page button {
+  border-radius: 0;
+  width: 100%;
+  border-top-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.home-page .card-text {
+  color: rgb(90, 89, 89);
+}
+
+.home-page .card img:hover {
+  transform: scale(0.9);
+}
+
+.home-page .card-img-top {
+  height: 300px !important;
+}
+/* ==================
+filters
+============== */
+.filters h4 {
+  margin-top: 100px;
+  color: gray !important;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.337);
+}
+
+.ant-checkbox-wrapper:first-of-type {
+  margin-left: 8px;
+}
+
+.ant-checkbox-wrapper {
+  margin: 2px;
+}
+.ant-radio-wrapper {
+  margin-bottom: 5px !important;
+  margin-left: 10px;
+}
+
+.filters button {
+  background-color: black;
+  width: 100%;
+  border: none;
+  border-radius: 0;
+  margin-top: 20px;
+}
+
+.loadmore {
+  color: green;
+  font-weight: bold;
+  font-size: 20px !important;
+}

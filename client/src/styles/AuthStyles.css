@@ -1,0 +1,70 @@
+/* ===================================
+========= register page  */
+.form-container {
+  margin-top: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  min-height: 70vh;
+  flex-direction: column;
+  background-color: #000000;
+  background-image: linear-gradient(0deg, #000000 0%, #000000 100%);
+}
+
+.form-container form {
+  border-radius: 5px;
+  box-shadow: rgba(135, 135, 135, 0.35) 0px 5px 15px;
+  padding: 20px;
+  color:white;
+  background-color: #464646;
+}
+
+.form-container form .title {
+  text-align: center;
+  color:white;
+  margin-bottom: 15px;
+  font-weight: bold;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.form-container form input {
+  border-radius: 5px;
+  border: none;
+  border-bottom: 1px solid #000000;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  
+}
+
+.form-container form button {
+  border-radius: 5px;
+  border: 1px solid black;
+  background-color: #d42323;
+  color: white;
+  width: 250px;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.form-container form button:hover {
+  border: 1px solid black;
+  background: #000000; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #000000,
+    #000000
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #000000,
+    #000000
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.forgot-btn {
+  background-color: #434343a4 !important;
+  border: 0 !important;
+}
+
+.forgot-btn:hover {
+  color: white !important;
+}

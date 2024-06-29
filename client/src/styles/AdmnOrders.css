@@ -1,0 +1,10 @@
+.white-background {
+    background-color: black;
+  }
+  
+  .white-background * {
+    color: white !important;
+  }
+  .text-black{
+    color:black;
+  }

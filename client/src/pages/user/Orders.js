@@ -4,6 +4,7 @@ import Layout from "./../../components/Layout/Layout";
 import axios from "axios";
 import { useAuth } from "../../context/auth";
 import moment from "moment";
+import "../../styles/userOrder.css";
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
@@ -60,18 +61,24 @@ const Orders = () => {
                 <div className="container">
                   {o?.products?.map((p, j) => (
                     <div className="row mb-2 p-3 card flex-row" key={j}>
-                      <div className="col-md-4">
+                      <div className="col-md-5">
                         <img
                           src={`/api/v1/product/product-photo/${p._id}`}
                           className="card-img-top"
                           alt={p.name}
-                          style={{ width: "100%", height: "auto" }}
+                          style={{
+                            width: "240px",
+                            height: "auto",
+                            marginBottom: "10px",
+                          }}
                         />
                       </div>
-                      <div className="col-md-8">
-                        <p>{p.name}</p>
-                        <p>{p.description.substring(0, 30)}</p>
-                        <p>Price : {p.price}</p>
+                      <div className="col-md-12">
+                        <p style={{ color: "black" }}>{p.name}</p>
+                        <p style={{ color: "black", fontSize: "18px" }}>
+                          {p.description.substring(0, 60)}...
+                        </p>
+                        <p style={{ color: "black" }}>Price : {p.price}</p>
                       </div>
                     </div>
                   ))}

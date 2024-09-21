@@ -98,13 +98,13 @@ const AdminOrders = () => {
                       className="row mb-2 p-3 card flex-row text-black"
                       key={p._id}
                     >
-                      <div className="col-md-4  text-black">
+                      <div className="col-md-12  text-black">
                         <img
                           src={`/api/v1/product/product-photo/${p._id}`}
                           className="card-img-top"
                           alt={p.name}
-                          width="100px"
-                          height="100px"
+                          width="300px"
+                          height="auto"
                         />
                       </div>
                       <div className="col-md-8 text-black">

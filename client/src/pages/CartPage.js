@@ -79,8 +79,7 @@ const CartPage = () => {
   };
   return (
     <Layout>
-      
-       {/* <div className="row cart-page2">
+      {/* <div className="row cart-page2">
           <div className="col-md-12 mt-5">
             <h1 className="text-center bg-light p-2 mb-1">
               {!auth?.user
@@ -97,32 +96,30 @@ const CartPage = () => {
           </div>
         </div> */}
       <div className=" cart-page">
-       
         <div className="container">
           <div className="row container-fluid">
             <div className="col-md-7  p-0 m-0">
               {cart?.map((p) => (
                 <div className="card" key={p._id}>
-                  <div className="col-md-7 d-flex flex-wrap container-fluid">
+                  <div className="col-md-6 d-flex flex-wrap container-fluid">
                     <img
                       src={`/api/v1/product/product-photo/${p._id}`}
                       className="card-img"
                       alt={p.name}
-                      width="50%"
+                      width="100%"
                     />
                   </div>
                   <div className="col-md-7 container-fluid">
                     <p>{p.name}</p>
-                    <p>{p.description.substring(0, 30)}</p>
                     <p>Price : {p.price}</p>
                   </div>
                   <button
-                      className="btn btn-danger remove"
-                      onClick={() => removeCartItem(p._id)}
-                    >
-                      Remove
-                    </button>
-                  
+                    style={{ marginLeft: "70px", width: "150px" }}
+                    className="btn btn-danger remove"
+                    onClick={() => removeCartItem(p._id)}
+                  >
+                    Remove
+                  </button>
                 </div>
               ))}
             </div>
@@ -183,7 +180,6 @@ const CartPage = () => {
                     />
 
                     <button
-                    
                       className="btn btn-danger"
                       onClick={handlePayment}
                       disabled={loading || !instance || !auth?.user?.address}

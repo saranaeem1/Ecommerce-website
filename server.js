@@ -9,8 +9,8 @@ import feedbackRoutes from "./routes/feedbackRoutes.js";
 import http from "http";
 import portfinder from "portfinder";
 import cors from "cors";
-import passport from "passport"; 
-import session from "express-session"; 
+import passport from "passport";
+import session from "express-session";
 import "./config/passport.js";
 
 // Config env
@@ -128,7 +128,6 @@ app.get("/api/v1/auth/google/callback", (req, res) => {
         name,
         email,
         googleId,
-        // Other defaults as necessary
       });
 
       newUser.save((err, savedUser) => {

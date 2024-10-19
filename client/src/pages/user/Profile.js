@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react"; 
 import UserMenu from "../../components/Layout/UserMenu";
 import Layout from "./../../components/Layout/Layout";
 import { useAuth } from "../../context/auth";
@@ -14,30 +14,25 @@ const Profile = () => {
   const [address, setAddress] = useState("");
 
   useEffect(() => {
+    console.log(auth?.user);
     const { email, name, phone, address } = auth?.user;
     setName(name);
     setPhone(phone);
     setEmail(email);
     setAddress(address);
+    console.log(auth?.user);
   }, [auth?.user]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const payload = {
+      const { data } = await axios.put("/api/v1/auth/profile", {
         name,
         email,
+        password,
         phone,
         address,
-      };
-
-      // Only add password to payload if it's provided
-      if (password) {
-        payload.password = password;
-      }
-
-      const { data } = await axios.put("/api/v1/auth/profile", payload);
-
+      });
       if (data?.error) {
         toast.error(data?.error);
       } else {
@@ -53,7 +48,6 @@ const Profile = () => {
       toast.error("Something went wrong");
     }
   };
-
 
   return (
     <Layout title={"Your Profile"}>

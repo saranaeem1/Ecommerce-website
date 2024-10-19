@@ -164,58 +164,40 @@ export const testController = (req, res) => {
   }
 };
 
-// Update Profile Controller
+//update profile
 export const updateProfileController = async (req, res) => {
   try {
     const { name, email, password, address, phone } = req.body;
-    
-    // Ensure req.user is defined
-    if (!req.user || !req.user._id) {
-      return res.status(401).json({ success: false, message: "Unauthorized" });
-    }
-
-    // Fetch the current user from the database
     const user = await userModel.findById(req.user._id);
-    if (!user) {
-      return res.status(404).json({ success: false, message: "User not found" });
-    }
-
-    // Check if the password is provided and ensure it's valid
+    //password
     if (password && password.length < 6) {
-      return res.json({ error: "Password must be at least 6 characters long" });
+      return res.json({ error: "Passsword is required and 6 character long" });
     }
-
-    // Hash the password only if it needs to be updated
-    const hashedPassword = password ? await hashPassword(password) : user.password;
-
-    // Prepare the update object
-    const updatedData = {
-      name: name || user.name,
-      password: hashedPassword,
-      phone: phone || user.phone,
-      address: address || user.address,
-    };
-
-    // Update the user record in the database
-    const updatedUser = await userModel.findByIdAndUpdate(req.user._id, updatedData, { new: true });
-    console.log("Authenticated user:", req.user);
-
+    const hashedPassword = password ? await hashPassword(password) : undefined;
+    const updatedUser = await userModel.findByIdAndUpdate(
+      req.user._id,
+      {
+        name: name || user.name,
+        password: hashedPassword || user.password,
+        phone: phone || user.phone,
+        address: address || user.address,
+      },
+      { new: true }
+    );
     res.status(200).send({
       success: true,
       message: "Profile Updated Successfully",
-      user: updatedUser,
+      updatedUser,
     });
   } catch (error) {
     console.log(error);
     res.status(400).send({
       success: false,
-      message: "Error While Updating Profile",
+      message: "Error While Update profile",
       error,
     });
   }
 };
-
-
 
 //orders
 export const getOrdersController = async (req, res) => {

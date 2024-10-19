@@ -9,7 +9,6 @@ import {
   getOrdersController,
   getAllOrdersController,
   orderStatusController,
-
 } from "../controllers/authController.js";
 import { getAllUsers } from "../controllers/userController.js";
 import { isAdmin, requireSignIn } from "../middlewares/authMiddleware.js";
@@ -60,7 +59,6 @@ router.put(
 // Get all users
 router.get("/users", requireSignIn, isAdmin, getAllUsers);
 
-
 // Initiate Google Authentication
 router.get(
   "/google",
@@ -70,7 +68,6 @@ router.get(
   },
   passport.authenticate("google", { scope: ["profile", "email"] })
 );
-
 
 router.get(
   "/google/callback",
@@ -91,8 +88,5 @@ router.get(
     );
   }
 );
-
-
-
 
 export default router;

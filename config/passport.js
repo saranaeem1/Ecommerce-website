@@ -18,7 +18,7 @@ passport.use(
         let user = await User.findOne({ googleId: profile.id });
 
         if (user) {
-          done(null, user); 
+          done(null, user);
         } else {
           // Create a new user if they don't exist
           user = new User({
@@ -26,11 +26,12 @@ passport.use(
             name: profile.displayName,
             email: profile.emails[0].value,
             phone: "",
-            address:"",
+            address: "",
+            password:"",
           });
 
-          await user.save(); 
-          done(null, user); 
+          await user.save();
+          done(null, user);
         }
       } catch (error) {
         console.error("Error during Google OAuth:", error);
@@ -49,7 +50,7 @@ passport.serializeUser((user, done) => {
 passport.deserializeUser(async (id, done) => {
   try {
     const user = await User.findById(id);
-    done(null, user); // Attach user to request object
+    done(null, user); 
   } catch (error) {
     done(error, null);
   }

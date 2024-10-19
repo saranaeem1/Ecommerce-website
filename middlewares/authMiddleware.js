@@ -9,6 +9,7 @@ export const requireSignIn = async (req, res, next) => {
       process.env.JWT_SECRET
     );
     req.user = decode;
+    console.log("Decoded Token:", decode); 
     next();
   } catch (error) {
     console.log(error);

@@ -7,21 +7,22 @@ import axios from "axios";
 
 const Profile = () => {
   const [auth, setAuth] = useAuth();
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [name, setName] = useState(auth?.user?.name || "");
+  const [email, setEmail] = useState(auth?.user?.email || "");
   const [password, setPassword] = useState("");
-  const [phone, setPhone] = useState("");
-  const [address, setAddress] = useState("");
+  const [phone, setPhone] = useState(auth?.user?.phone || "");
+  const [address, setAddress] = useState(auth?.user?.address || "");
 
   useEffect(() => {
-    console.log(auth?.user);
-    const { email, name, phone, address } = auth?.user;
-    setName(name);
-    setPhone(phone);
-    setEmail(email);
-    setAddress(address);
-    console.log(auth?.user);
+    if (auth?.user) {
+      const { email, name, phone, address } = auth.user;
+      setName(name || "");
+      setPhone(phone || "");
+      setEmail(email || "");
+      setAddress(address || "");
+    }
   }, [auth?.user]);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,19 +36,22 @@ const Profile = () => {
       });
       if (data?.error) {
         toast.error(data?.error);
-      } else {
-        setAuth({ ...auth, user: data?.updatedUser });
+      } else if (data?.updatedUser) {
+        setAuth({ ...auth, user: data.updatedUser });
         let ls = localStorage.getItem("auth");
         ls = JSON.parse(ls);
         ls.user = data.updatedUser;
         localStorage.setItem("auth", JSON.stringify(ls));
         toast.success("Profile Updated Successfully");
+      } else {
+        toast.error("Failed to update profile.");
       }
     } catch (error) {
       console.log(error);
       toast.error("Something went wrong");
     }
   };
+
 
   return (
     <Layout title={"Your Profile"}>

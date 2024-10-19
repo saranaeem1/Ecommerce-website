@@ -73,11 +73,10 @@ router.get(
   "/google/callback",
   passport.authenticate("google", { failureRedirect: "/login" }),
   (req, res) => {
-    const token = JWT.sign({ id: req.user._id }, process.env.JWT_SECRET, {
-      expiresIn: "1h",
+    const token = JWT.sign({ _id: req.user._id }, process.env.JWT_SECRET, {
+      expiresIn: "7d",
     });
 
-    // Get the redirect path from the session or set a default
     const redirect = req.session.redirect || "/";
     delete req.session.redirect;
 

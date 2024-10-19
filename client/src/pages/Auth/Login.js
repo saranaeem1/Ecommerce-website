@@ -13,7 +13,6 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // This effect runs on component mount to check for token in the URL
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const token = urlParams.get("token");
@@ -28,7 +27,6 @@ const Login = () => {
         JSON.stringify({ user: JSON.parse(decodeURIComponent(user)), token })
       );
 
-      // Navigate to the intended route or default to "/dashboard/user"
       navigate(redirect || "/");
       toast.success("Login Successful!");
     }

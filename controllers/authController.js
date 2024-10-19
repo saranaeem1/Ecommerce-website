@@ -166,10 +166,9 @@ export const testController = (req, res) => {
 
 //update profile
 export const updateProfileController = async (req, res) => {
-  try {
+  try{
     const { name, email, password, address, phone } = req.body;
     const user = await userModel.findById(req.user._id);
-    //password
     if (password && password.length < 6) {
       return res.json({ error: "Passsword is required and 6 character long" });
     }
@@ -223,7 +222,7 @@ export const getAllOrdersController = async (req, res) => {
       .find({})
       .populate("products", "-photo")
       .populate("buyer", "name")
-      .sort({ createdAt: -1 }); // Sorting by createdAt field in descending order
+      .sort({ createdAt: -1 }); 
 
     res.json(orders);
   } catch (error) {

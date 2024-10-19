@@ -26,14 +26,18 @@ const CategoryProduct = () => {
 
   return (
     <Layout>
-      <div className="container mt-3 category" >
-        <h1 className="text-center">Category - {category?.name}</h1>
-        <h4 className="text-center">{products?.length} result found </h4>
+      <div className="container mt-3 category">
+        <h1 className="text-center">{category?.name}</h1>
+        {/* <h4 className="text-center">{products?.length} result found </h4> */}
         <div className="row">
           <div className="col-md-9 offset-1">
             <div className="d-flex flex-wrap">
               {products?.map((p) => (
-                <div className="card m-2" key={p._id} style={{border: '2px solid red'}}>
+                <div
+                  className="card m-2"
+                  key={p._id}
+                  style={{ border: "3px solid maroon" }}
+                >
                   <img
                     src={`/api/v1/product/product-photo/${p._id}`}
                     className="card-img-top"

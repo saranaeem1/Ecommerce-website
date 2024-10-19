@@ -22,7 +22,14 @@ const Header = () => {
   };
   return (
     <>
-      <nav className="navbar navbar-expand-md fixed-top" style={{ backgroundColor: 'transparent', borderBottom: 'none', boxShadow: 'none' }}>
+      <nav
+        className="navbar navbar-expand-md fixed-top"
+        style={{
+          backgroundColor: "transparent",
+          borderBottom: "none",
+          boxShadow: "none",
+        }}
+      >
         <div className="container-fluid">
           <button
             className="navbar-toggler"
@@ -39,8 +46,15 @@ const Header = () => {
             <div className="container-fluid">
               <div className="row align-items-center">
                 <div className="col-md-3 d-flex align-items-center">
-                  <Link to="/" className="navbar-brand d-flex align-items-center">
-                    <img src="/images/pastalogo.png" alt="" className="navbar-logo" />
+                  <Link
+                    to="/"
+                    className="navbar-brand d-flex align-items-center"
+                  >
+                    <img
+                      src="/images/pastalogo.png"
+                      alt=""
+                      className="navbar-logo"
+                    />
                     <span className="ms-4">Pasta on the Plate</span>
                   </Link>
                 </div>
@@ -63,6 +77,11 @@ const Header = () => {
                         <li>
                           <Link className="dropdown-item" to={"/categories"}>
                             All Categories
+                          </Link>
+                        </li>
+                        <li>
+                          <Link className="dropdown-item" to={"/product"}>
+                            All Products
                           </Link>
                         </li>
                         {categories?.map((c) => (

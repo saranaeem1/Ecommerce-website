@@ -7,7 +7,7 @@ const Search = () => {
     <Layout title={"Search results"}>
       <div className="container">
         <div className="text-center">
-          <h1>Search Resuts</h1>
+          <h1>Search Results</h1>
           <h6>
             {values?.results.length < 1
               ? "No Products Found"
@@ -22,11 +22,16 @@ const Search = () => {
                   alt={p.name}
                 />
                 <div className="card-body">
-                  <h5 className="card-title">{p.name}</h5>
-                  <p className="card-text">
+                  <h5 className="card-title" style={{ color: "black" }}>
+                    {p.name}
+                  </h5>
+                  <p className="card-text" style={{ color: "black" }}>
                     {p.description.substring(0, 30)}...
                   </p>
-                  <p className="card-text"> $ {p.price}</p>
+                  <p className="card-text" style={{ color: "black" }}>
+                    {" "}
+                    $ {p.price}
+                  </p>
                   <button class="btn btn-danger ms-1">More Details</button>
                   <button class="btn btn-danger ms-1">ADD TO CART</button>
                 </div>

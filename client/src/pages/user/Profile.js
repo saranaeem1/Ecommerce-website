@@ -24,13 +24,20 @@ const Profile = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.put("/api/v1/auth/profile", {
+      const payload = {
         name,
         email,
-        password,
         phone,
         address,
-      });
+      };
+
+      // Only add password to payload if it's provided
+      if (password) {
+        payload.password = password;
+      }
+
+      const { data } = await axios.put("/api/v1/auth/profile", payload);
+
       if (data?.error) {
         toast.error(data?.error);
       } else {
@@ -46,6 +53,7 @@ const Profile = () => {
       toast.error("Something went wrong");
     }
   };
+
 
   return (
     <Layout title={"Your Profile"}>
@@ -116,5 +124,4 @@ const Profile = () => {
     </Layout>
   );
 };
-
 export default Profile;

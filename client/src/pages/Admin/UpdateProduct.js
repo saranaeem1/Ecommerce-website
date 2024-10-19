@@ -5,12 +5,16 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import { Select } from "antd";
 import { useNavigate, useParams } from "react-router-dom";
+
 const { Option } = Select;
 
 const UpdateProduct = () => {
   const navigate = useNavigate();
   const params = useParams();
+
+  // States
   const [categories, setCategories] = useState([]);
+  const [initialProduct, setInitialProduct] = useState(null);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
@@ -20,7 +24,7 @@ const UpdateProduct = () => {
   const [photo, setPhoto] = useState("");
   const [id, setId] = useState("");
 
-  //get single product
+  // Get single product
   const getSingleProduct = async () => {
     try {
       const { data } = await axios.get(
@@ -30,19 +34,30 @@ const UpdateProduct = () => {
       setId(data.product._id);
       setDescription(data.product.description);
       setPrice(data.product.price);
-      setPrice(data.product.price);
       setQuantity(data.product.quantity);
       setShipping(data.product.shipping);
       setCategory(data.product.category._id);
+
+      // Save the initial product data
+      setInitialProduct({
+        name: data.product.name,
+        description: data.product.description,
+        price: data.product.price,
+        quantity: data.product.quantity,
+        shipping: data.product.shipping,
+        category: data.product.category._id,
+      });
     } catch (error) {
       console.log(error);
     }
   };
+
   useEffect(() => {
     getSingleProduct();
     //eslint-disable-next-line
   }, []);
-  //get all category
+
+  // Get all categories
   const getAllCategory = async () => {
     try {
       const { data } = await axios.get("/api/v1/category/get-category");
@@ -51,7 +66,7 @@ const UpdateProduct = () => {
       }
     } catch (error) {
       console.log(error);
-      toast.error("Something wwent wrong in getting catgeory");
+      toast.error("Something went wrong in getting category");
     }
   };
 
@@ -59,53 +74,83 @@ const UpdateProduct = () => {
     getAllCategory();
   }, []);
 
-  //create product function
+  // Check if any field has changed
+  const hasChanges = () => {
+    return (
+      initialProduct &&
+      (name !== initialProduct.name ||
+        description !== initialProduct.description ||
+        price !== initialProduct.price ||
+        quantity !== initialProduct.quantity ||
+        shipping !== initialProduct.shipping ||
+        category !== initialProduct.category ||
+        (photo && photo !== ""))
+    );
+  };
+
+  // Update product function
   const handleUpdate = async (e) => {
     e.preventDefault();
+
+    if (!hasChanges()) {
+      toast("No changes detected. Update not required.", {
+        icon: "ℹ️",
+      });
+      return;
+    }
+
     try {
       const productData = new FormData();
       productData.append("name", name);
       productData.append("description", description);
       productData.append("price", price);
       productData.append("quantity", quantity);
-      photo && productData.append("photo", photo);
+      if (photo) productData.append("photo", photo);
       productData.append("category", category);
-      const { data } = axios.put(
+
+      const { data } = await axios.put(
         `/api/v1/product/update-product/${id}`,
         productData
       );
       if (data?.success) {
-        toast.error(data?.message);
-      } else {
         toast.success("Product Updated Successfully");
         navigate("/dashboard/admin/products");
+      } else {
+        toast.error(data.message);
       }
-    } catch (error) {
-      console.log(error);
-      toast.error("something went wrong");
-    }
-  };
-
-  //delete a product
-  const handleDelete = async () => {
-    try {
-      let answer = window.prompt("Are You Sure want to delete this product ? ");
-      if (!answer) return;
-      const { data } = await axios.delete(
-        `/api/v1/product/delete-product/${id}`
-      );
-      toast.success("Product DEleted Succfully");
-      navigate("/dashboard/admin/products");
     } catch (error) {
       console.log(error);
       toast.error("Something went wrong");
     }
   };
+
+  // Delete product function
+  const handleDelete = async () => {
+    try {
+      const confirmDelete = window.confirm(
+        "Are you sure you want to delete this product?"
+      );
+      if (!confirmDelete) return;
+
+      const { data } = await axios.delete(
+        `/api/v1/product/delete-product/${id}`
+      );
+      if (data?.success) {
+        toast.success("Product Deleted Successfully");
+        navigate("/dashboard/admin/products");
+      } else {
+        toast.error(data.message);
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error("Something went wrong while deleting the product");
+    }
+  };
+
   return (
-    <Layout title={"Dashboard - Create Product"}>
+    <Layout title={"Dashboard - Update Product"}>
       <div className="container-fluid m-3 p-3 mt-5">
         <div className="row mt-5">
-          
           <div className="col-md-9">
             <h1>Update Product</h1>
             <div className="m-1 w-75">
@@ -200,14 +245,14 @@ const UpdateProduct = () => {
               <div className="mb-3">
                 <Select
                   bordered={false}
-                  placeholder="Select Shipping "
+                  placeholder="Select Shipping"
                   size="large"
                   showSearch
                   className="form-select mb-3"
                   onChange={(value) => {
                     setShipping(value);
                   }}
-                  value={shipping ? "yes" : "No"}
+                  value={shipping ? "Yes" : "No"}
                 >
                   <Option value="0">No</Option>
                   <Option value="1">Yes</Option>

@@ -2,31 +2,35 @@ import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema(
   {
+    googleId: {
+      type: String, 
+      required: false, 
+    },
     name: {
       type: String,
-      required: true,
+      required: false,
       trim: true,
     },
     email: {
       type: String,
-      required: true,
+      required: false,
       unique: true,
     },
     password: {
       type: String,
-      required: true,
+      required: false, // Optional for OAuth users
     },
     phone: {
       type: String,
-      required: true,
+      required: false,
     },
     address: {
-      type: {},
-      required: true,
+      type: String, // Change type to String if applicable
+      required: false,
     },
     answer: {
       type: String,
-      required: true,
+      required: false,
     },
     role: {
       type: Number,

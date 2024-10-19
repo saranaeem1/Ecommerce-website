@@ -1,4 +1,5 @@
 import express from "express";
+import passport from "passport";
 import {
   registerController,
   loginController,
@@ -8,8 +9,11 @@ import {
   getOrdersController,
   getAllOrdersController,
   orderStatusController,
+
 } from "../controllers/authController.js";
+import { getAllUsers } from "../controllers/userController.js";
 import { isAdmin, requireSignIn } from "../middlewares/authMiddleware.js";
+import JWT from "jsonwebtoken";
 
 //router object
 const router = express.Router();
@@ -52,5 +56,43 @@ router.put(
   isAdmin,
   orderStatusController
 );
+
+// Get all users
+router.get("/users", requireSignIn, isAdmin, getAllUsers);
+
+
+// Initiate Google Authentication
+router.get(
+  "/google",
+  (req, res, next) => {
+    req.session.redirect = req.query.redirect || "/dashboard/user";
+    next();
+  },
+  passport.authenticate("google", { scope: ["profile", "email"] })
+);
+
+
+router.get(
+  "/google/callback",
+  passport.authenticate("google", { failureRedirect: "/login" }),
+  (req, res) => {
+    const token = JWT.sign({ id: req.user._id }, process.env.JWT_SECRET, {
+      expiresIn: "1h",
+    });
+
+    // Get the redirect path from the session or set a default
+    const redirect = req.session.redirect || "/";
+    delete req.session.redirect;
+
+    res.redirect(
+      `http://localhost:3000/login?token=${token}&user=${encodeURIComponent(
+        JSON.stringify(req.user)
+      )}&redirect=${redirect}`
+    );
+  }
+);
+
+
+
 
 export default router;

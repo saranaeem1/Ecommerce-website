@@ -1,26 +1,91 @@
 h3 {
-    justify-content: center;
-    align-items: center;
-  }
-  
-.filter {
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-    align-items: left;
-    margin-left: 100px;
-  }
-  
-.filter h4 {
-    color: white;
-    margin-bottom: 15px;
-  }
-  
-.filter button {
-    margin-top: 10px;
-  }
-  
+  justify-content: center;
+  align-items: center;
+}
 
-  
-  
-  
+.filter {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+  margin-left: 100px;
+}
+
+.filter h4 {
+  color: white;
+  margin-bottom: 15px;
+}
+
+.filter button {
+  margin-top: 10px;
+}
+
+.home-page {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-left: 50px;
+}
+
+.home-page .card {
+  background-color: rgba(128, 128, 128, 0.097);
+  width:280px;
+  border: 5px;
+}
+
+.home-page  .card-body {
+  background-color: white;
+}
+
+.home-page  .card-name-price {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home-page  .card-price {
+  color: green;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.home-page  .addtocart{
+  border-radius: 0;
+  border-top-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: green;
+}
+.home-page  .adddetails{
+  /* width: 100%; */
+  border-top-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.home-page  .card-title {
+  color: rgb(1, 1, 1);
+  align-content: center;
+}
+
+.home-page .card-text-light {
+  color: rgb(1, 1, 1);
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-page .card img:hover {
+  transform: scale(0.9);
+}
+
+.home-page .card-img-top {
+  height: 200px !important;
+}
+
+

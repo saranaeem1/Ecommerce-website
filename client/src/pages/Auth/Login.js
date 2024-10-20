@@ -32,9 +32,6 @@ const Login = () => {
     }
   }, [navigate, setAuth]);
 
-
- // Empty dependency array means this runs once when the component mounts
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -68,7 +65,7 @@ const Login = () => {
       <div className="form-container" style={{ minHeight: "90vh" }}>
         <form onSubmit={handleSubmit}>
           <h4 className="title">LOGIN</h4>
-          <div className="mb-3">
+          <div className="mb-1">
             <input
               type="email"
               autoFocus
@@ -80,7 +77,7 @@ const Login = () => {
               required
             />
           </div>
-          <div className="mb-3">
+          <div className="mb-1">
             <input
               type="password"
               value={password}
@@ -91,7 +88,7 @@ const Login = () => {
               required
             />
           </div>
-          <div className="mb-3">
+          <div className="mb-2">
             <button
               type="button"
               className="btn forgot-btn"
@@ -102,7 +99,7 @@ const Login = () => {
               Forgot Password
             </button>
           </div>
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary mt-1 mb-2">
             LOGIN
           </button>
           <button

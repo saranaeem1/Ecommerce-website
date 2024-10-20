@@ -27,25 +27,21 @@ const CategoryProduct = () => {
   return (
     <Layout>
       <div className="container mt-3 category">
-        <h1 className="text-center">{category?.name}</h1>
-        {/* <h4 className="text-center">{products?.length} result found </h4> */}
+        <h1 className="text-center">Category - {category?.name}</h1>
+        <h4 className="text-center">{products?.length} result found </h4>
         <div className="row">
-          <div className="col-md-9 offset-1">
+          <div className="col-md-12">
             <div className="d-flex flex-wrap">
               {products?.map((p) => (
-                <div
-                  className="card m-2"
-                  key={p._id}
-                  style={{ border: "3px solid maroon" }}
-                >
+                <div className="card m-2" key={p._id} style={{ border: "2px" }}>
                   <img
                     src={`/api/v1/product/product-photo/${p._id}`}
                     className="card-img-top"
                     alt={p.name}
                   />
                   <div className="card-body">
-                    <div className="card-name-price">
-                      <h5 className="card-title test2">{p.name}</h5>
+                    <div className="text-start card-name-price">
+                      <h5 className="text-start card-title test2">{p.name}</h5>
                       <h5 className="card-title card-price">
                         {p.price.toLocaleString("en-US", {
                           style: "currency",
@@ -53,7 +49,7 @@ const CategoryProduct = () => {
                         })}
                       </h5>
                     </div>
-                    <p className="card-text ">
+                    <p className="text-start card-text ">
                       {p.description.substring(0, 60)}...
                     </p>
                     <div className="card-name-price">

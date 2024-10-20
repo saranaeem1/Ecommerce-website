@@ -5,10 +5,9 @@ import toast from "react-hot-toast";
 import { AiOutlineReload } from "react-icons/ai";
 import { Prices } from "../components/Prices";
 import axios from "axios";
-import "../styles/Homepage.css";
-import { Radio } from "antd"; 
+import "../styles/ProductCardStyle.css";
+import { Radio } from "antd";
 import SearchInput from "../components/Form/SearchInput";
-
 
 const ProductCard = () => {
   const navigate = useNavigate();
@@ -117,41 +116,41 @@ const ProductCard = () => {
   };
 
   return (
-      <>
-          <SearchInput/>
+    <>
+      <SearchInput />
       {/* Price Filter */}
-      <h4 className="mt-4 pl-4">Filter By Price</h4>
-      <div className="d-flex flex-column">
-        <Radio.Group
-          onChange={(e) => setRadio(e.target.value)}
-        >
-          {Prices?.map((p) => (
-            <div key={p._id}>
-              <Radio style={{ color: "white" }} value={p.array}>
-                {p.name}
-              </Radio>
-            </div>
-          ))}
-        </Radio.Group>
+      <div className="filter">
+        <h4>Filter By Price</h4>
+        <div className="d-flex flex-column">
+          <Radio.Group onChange={(e) => setRadio(e.target.value)}>
+            {Prices?.map((p) => (
+              <div key={p._id}>
+                <Radio style={{ color: "white" }} value={p.array}>
+                  {p.name}
+                </Radio>
+              </div>
+            ))}
+          </Radio.Group>
+        </div>
+        <div className="d-flex flex-column">
+          <button
+            className="btn btn-danger"
+            style={{ width: "200px" }}
+            onClick={() => window.location.reload()}
+          >
+            {" "}
+            RESET FILTERS
+          </button>
+        </div>
       </div>
-      <div className="d-flex flex-column">
-        <button
-          className="btn btn-danger"
-          style={{ width: "200px" }}
-          onClick={() => window.location.reload()}
-        >
-          RESET FILTERS
-        </button>
-      </div>
-
-      <div className="container-fluid row mt-3 home-page">
-        <div className="col-md-9 container-fluid ">
-          <h1 style={{ color: "white" }} className="text-center">
+      <div className="container-fluid row mt-2 home-page">
+        <div className="col-md-16 container-fluid ">
+          <h2 style={{ color: "white" }} className="text-center">
             All Products
-          </h1>
+          </h2>
           <div className="d-flex flex-wrap test">
             {products?.map((p) => (
-              <div className="card m-2" key={p._id}>
+              <div className="card m-3" key={p._id}>
                 <img
                   src={`/api/v1/product/product-photo/${p._id}`}
                   className="card-img-top"

@@ -1,3 +1,36 @@
+
+.imgcentre{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.img3{
+  width:100%;
+  background-image:cover;
+  max-height:600px;
+}
+.home-page{
+  margin: auto;
+ }
+ 
+ .testproducts{
+  margin: auto;
+ }
+ .card-text{
+  font-size:12px;
+}
+
+ .card-body{
+  background-color: white;
+ }
+ 
+.card-img-top{
+  height:200px;
+ }
+ 
+ 
+ 
+ 
  /* FLEXES */
  .submitbtn{
   width:100px;
@@ -59,73 +92,38 @@ input, select, textarea {
   border: none;
 }
 
-.flex_main2h2 {
-  background-color:#373131;
-  color:white;
-  height:auto;
-  display: flex;
-  padding-top: 30px;
-  flex-direction: column;
-  align-items: center;
 
-}
 
 
 .img2{
   width:90%;
   height:60%;
 }
-.img3{
-  width:80%;
-}
-.imgcentre{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.menudivs{
-  display:flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  width:100%;
-  height:auto;
-  background: #000;
-  color:white;
 
-}
+
+
 .rdmore2{
-  color:rgb(26, 201, 114);
+  background-color:rgba(202, 10, 10, 0.811);
+  color:rgb(255, 255, 255);
   text-decoration: none;
+  margin:5px;
+  padding:8px;
+  border-radius: 16px;
 }
 
 .menudiv{
-  margin:20px;
-  padding:10px;
-  border:2px solid rgb(249, 4, 4);
-  border-color: rgb(249, 4, 4);
-  border-radius: 16px;
+  width:250px;
+height:400px;
+margin:10px;
+background-color:white;
+color:black;
+border-radius: 16px;
   
 }
 .icons{
   height:200px;
   width:100%;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .mainflex{
   display:flex;
@@ -140,6 +138,7 @@ input, select, textarea {
 }
 .mainp{
 width:500px;
+text-align: center;
 word-wrap: break-word;
 }
 .mainh{
@@ -152,7 +151,8 @@ word-wrap: break-word;
 .mainbtn{
   background-color: rgb(249, 4, 4);
   color:white;
-  width:150px;
+  width:170px;
+  margin: auto;
   height:40px;
   border-color:rgb(249, 4, 4);
   border-radius: 20px;
@@ -164,31 +164,19 @@ word-wrap: break-word;
   width:150px;
   height:40px;
   border-radius: 20px;
-  margin-bottom: 20px;
   
 }
 .btnlink{
   background-color: rgb(249, 4, 4);
   color: white;
+  width:auto;
   text-decoration: none;
 }
 
 
 
 
-.flex1{
-  margin-left:30px;
-  max-width:700px;
-  color:white;
-}
-.flex2{
-  margin-right:20px;
-  max-width:700px;
 
-}
-.img1{
-width:45%;
-}
 .banner-img {
   margin-top: 60px;
 }
@@ -222,10 +210,6 @@ flex-direction: column;
   }
 }
 
-
-
-
-
 /*old */
 .home-page h1 {
   color: gray;
@@ -237,7 +221,7 @@ flex-direction: column;
   flex-wrap: wrap;
 }
 .home-page .card {
-  background-color: rgba(128, 128, 128, 0.097);
+  background-color: rgba(255, 255, 255, 0.097);
   width: 18rem;
 }
 .home-page .card-name-price {
@@ -267,9 +251,7 @@ flex-direction: column;
   transform: scale(0.9);
 }
 
-.home-page .card-img-top {
-  height: 300px !important;
-}
+
 /* ==================
 filters
 ============== */

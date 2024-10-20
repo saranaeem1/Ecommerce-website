@@ -1,69 +1,75 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Layout from "../components/Layout/Layout";
-import CategoryCard from "./CategoryCard";
-
-const categoryData = [
-  {
-    image: "/images/pasta.jpg",
-    title: "Exquisite Pasta Creations",
-    description:
-      "Indulge in the timeless flavors of Italy with our handcrafted pasta delicacies, meticulously prepared using the finest ingredients.",
-    link: "/category/pasta",
-  },
-  {
-    image: "/images/sandwiches.jpg",
-    title: "Sandwiches",
-    description:
-      "Experience the flavour of our perfect sandwiches, delivering a burst of flavor in every bite.",
-    link: "/category/sandwiches",
-  },
-  {
-    image: "/images/chowmein.jfif",
-    title: "Irresistible Chowmein",
-    description:
-      "Delight your senses with our savory chowmein, expertly crafted with a medley of aromatic spices and fresh ingredients.",
-    link: "/category/chowmein",
-  },
-  {
-    image: "/images/soups.jpg",
-    title: "Soups",
-    description:
-      "Explore our diverse selection of soups crafted that span a world of culinary traditions and ingredients.",
-    link: "/category/soups",
-  },
-  {
-    image: "/images/desserts.jfif",
-    title: "Desserts",
-    description:
-      "Explore our delectable assortment of desserts crafted with passion and precision to satisfy your sweet tooth.",
-    link: "/category/desserts",
-  },
-  {
-    image: "/images/beverages.jfif",
-    title: "Refreshing Beverages",
-    description:
-      "Quench your thirst with our refreshing selection of beverages, ranging from energizing juices to soothing teas.",
-    link: "/category/drinks",
-  },
-];
 
 const Categories = () => {
   return (
     <Layout title="Our Menu">
-      <div className="menudivs mt-5">
+      <div className="mt-5">
         <h1>Categories</h1>
       </div>
-      <div className="menudivs">
+
+      <div className="container">
         <div className="row">
-          {categoryData.map((category, index) => (
-            <CategoryCard
-              key={index}
-              image={category.image}
-              title={category.title}
-              description={category.description}
-              link={category.link}
-            />
-          ))}
+          <div className="col-md-3 menudiv">
+            <img className="icons" src="/images/pasta.jpg" />
+            <h4 className="mt-10">Exquisite Pasta Creations</h4>
+            <p>
+              Indulge in the timeless flavors of Italy with our handcrafted
+              pasta
+            </p>
+            <Link to="/category/pasta" className="rdmore2">
+              Explore More
+            </Link>
+          </div>
+
+          <div className="col-md-3 menudiv">
+            <img className="icons" src="/images/sandwiches.jpg" />
+            <h4>Sandwiches</h4>
+            <p>Experience the flavour of our perfect sandwiches.</p>
+            <Link to="/category/sandwiches" className="rdmore2">
+              Explore More
+            </Link>
+          </div>
+
+          <div className="col-md-3 menudiv">
+            <img className="icons" src="/images/chowmein.jfif" />
+            <h4>Irresistible Chowmein</h4>
+            <p>Delight your senses with our savory chowmein.</p>
+            <Link to="/category/chowmein" className="rdmore2">
+              Explore More
+            </Link>
+          </div>
+          <div className="col-md-3 menudiv">
+            <img className="icons" src="/images/soups.jpg" />
+            <h4>Soups</h4>
+            <p>Explore our diverse selection of soups.</p>
+            <Link to="/category/soups" className="rdmore2">
+              Explore More
+            </Link>
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col-md-3 menudiv">
+            <img className="icons" src="/images/desserts.jfif" />
+            <h4>Desserts</h4>
+            <p>Explore our delectable assortment of desserts.</p>
+            <Link to="/category/desserts" className="rdmore2">
+              Explore More
+            </Link>
+          </div>
+
+          <div className="col-md-3 menudiv">
+            <img className="icons" src="/images/beverages.jfif" />
+            <h4>Refreshing Beverages</h4>
+            <p>
+              Quench your thirst with our refreshing selection of beverages.
+            </p>
+            <Link to="/category/drinks" className="rdmore2">
+              Explore More
+            </Link>
+          </div>
         </div>
       </div>
     </Layout>

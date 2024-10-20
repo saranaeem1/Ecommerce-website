@@ -79,9 +79,9 @@ const Register = () => {
   return (
     <Layout title="Register - Ecommerce App">
       <div className="form-container" style={{ minHeight: "90vh" }}>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="mt-4">
           <h4 className="title">REGISTER</h4>
-          <div className="mb-3">
+          <div className="mb-1">
             <input
               type="text"
               value={name}
@@ -92,7 +92,7 @@ const Register = () => {
               autoFocus
             />
           </div>
-          <div className="mb-3">
+          <div className="mb-1">
             <input
               type="email"
               value={email}
@@ -102,7 +102,7 @@ const Register = () => {
               required
             />
           </div>
-          <div className="mb-3">
+          <div className="mb-1">
             <input
               type="password"
               value={password}
@@ -112,7 +112,7 @@ const Register = () => {
               required
             />
           </div>
-          <div className="mb-3">
+          <div className="mb-1">
             <input
               type="text"
               value={phone}
@@ -122,7 +122,7 @@ const Register = () => {
               required
             />
           </div>
-          <div className="mb-3">
+          <div className="mb-1">
             <input
               type="text"
               value={address}
@@ -132,7 +132,7 @@ const Register = () => {
               required
             />
           </div>
-          <div className="mb-3">
+          <div className="mb-1">
             <input
               type="text"
               value={answer}
@@ -147,7 +147,7 @@ const Register = () => {
           </button>
           <button
             type="button"
-            className="btn btn-primary"
+            className="btn btn-primary mt-2"
             onClick={handleGoogleSignIn}
           >
             SIGN UP WITH GOOGLE

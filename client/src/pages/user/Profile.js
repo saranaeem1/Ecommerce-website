@@ -111,10 +111,11 @@ const Profile = () => {
                     placeholder="Enter Your Updated Address"
                   />
                 </div>
-                <button type="submit"className="btn btn-danger updatebtn">
+                <button type="submit" className="btn btn-danger updatebtn">
                   UPDATE
                 </button>
               </form>
+              <br /> <br />
             </div>
           </div>
         </div>

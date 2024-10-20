@@ -10,15 +10,13 @@ const Dashboard = () => {
     <Layout title={"Dashboard - Ecommerce App"}>
       <div className="container mt-5">
         <div className="row">
-          <div className="col-md-3 mt-5">
+          <div className="admin-info text-center">
+            <h1 className="mt-5">User Profile</h1>
+            <p>
+              User Name: {auth?.user?.name} | User Email: {auth?.user?.email} |
+              User Contact: {auth?.user?.phone}
+            </p>
             <UserMenu />
-          </div>
-          <div className="col-md-9 mt-5">
-            <div className="card p-3 ">
-              <h3 className="text-black">Name: {auth?.user?.name}</h3>
-              <h3 className="text-black">Email: {auth?.user?.email}</h3>
-              <h3 className="text-black">Address: {auth?.user?.address}</h3>
-            </div>
           </div>
         </div>
       </div>

@@ -12,6 +12,7 @@
     border: 1px solid #ced4da; 
     border-radius: 7px;
     font-size: 16px; 
+    color: black;
   }
   
   .form-control:focus {
@@ -27,6 +28,78 @@
     cursor: pointer; 
     transition: background-color 0.3s; 
   }
+  
+ 
+  .Search {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-left: 50px;
+  }
+  
+  .Search .card {
+    background-color: rgba(128, 128, 128, 0.097);
+    width:280px;
+    border: 5px;
+  }
+  
+  .Search  .card-body {
+    background-color: white;
+  }
+  .Search .price{
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .Search  .card-name-price {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .Search  .card-price {
+    background-color: green;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  .Search  .addtocart{
+    border-radius: 0;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: green;
+  }
+  .Search  .adddetails{
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .Search  .card-title {
+    color: rgb(1, 1, 1);
+    align-content: center;
+  }
+  
+  .Search .card-text-light {
+    color: rgb(1, 1, 1);
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .Search .card img:hover {
+    transform: scale(0.9);
+  }
+  
+  .Search .card-img-top {
+    height: 200px !important;
+  }
+  
   
   
   

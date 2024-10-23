@@ -39,17 +39,9 @@
 
 6. **Set up environment variables**:
    Create a `.env` file in both the root and client/src directories
+   ![image](https://github.com/user-attachments/assets/90f55da5-32f8-40f9-ba53-551db48017ad)
 
-   Pasta on the plate Ecommerce
-   │
-   ├── Ecommerce
-       ├── client
-           ├── src
-                └── .env
-   └── .env
-   
-
-   - `.env` file in client directory:
+   - `.env` file in client/src directory:
      ```env
      REACT_APP_API=http://localhost:8000
      ```
@@ -72,14 +64,4 @@
     ```bash
     npm run dev
     ```
-## Project Structure
-Pasta on the plate Ecommerce
-│
-├── Ecommerce
-    ├── client
-        ├── src
-            ├── .env
-└── .env 
-
-
 

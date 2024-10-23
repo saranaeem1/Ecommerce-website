@@ -62,8 +62,9 @@
      SESSION_SECRET= abcdx67jf4uvhgcUo09cf75$vhhfghtverqrasd738472308rgkjhbfhb789ghu23rsa
      ```
      
-8. **Start the both fronend and backend server**:
+7. **Start the both fronend and backend server**:
     ```bash
     npm run dev
     ```
+
 
